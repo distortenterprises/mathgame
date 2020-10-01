@@ -18,14 +18,14 @@ tryAgain = True
 
 while tryAgain == True:
     try:
-        os.system('say "{0}"'.format("Lets play a game!"))
+        print("Let's play a game : ")
         time.sleep(1)
-        os.system('say "{0}"'.format("Whats your name?"))
-        name = raw_input("Whats your name?: ")
+        
+        name = input("Whats your name : ")
         #print(str(name))
-        os.system('say "{0}"'.format("Hi" + " " + name))
+        print("Hello " +name+ " :")
         time.sleep(1)
-        os.system('say "{0}"'.format("I am going to ask you" + (str(size)) + " " + "Questions"))
+        print("I am going to ask you " + (str(size)) + " " + "Questions")
         time.sleep(1)
 
 
@@ -34,7 +34,7 @@ while tryAgain == True:
         os.system('say "{0}"'.format(message + " " + "test"))
         time.sleep(1)
 
-        sys.exit('operation completed')
+        
 
 
     for i in range(0,size):
@@ -51,9 +51,9 @@ while tryAgain == True:
             message = (random1 + operation + random2 + "= ")
             os.system('say "{0}"'.format(message))
             time.sleep(1)
-            os.system('say "{0}"'.format("What is it?"))
+            print("What is it ? ")
             #print(random)
-            answer = raw_input("Whats the answer?: ")
+            answer = input("Whats the answer?: ")
 
 
         except:
@@ -61,53 +61,56 @@ while tryAgain == True:
             os.system('say "{0}"'.format(message + " " + "test"))
             time.sleep(1)
 
-            sys.exit('operation completed')
+            
 
         if (int(answer)) >= 700:
-            message = "I said between 1 & 6!"
-            os.system('say "{0}"'.format(message))
+            print("I said between 1 & 6!")
+            
             time.sleep(1)
-            os.system('say "{0}"'.format("You choose" + (str(answer))) + "are you stupid?")
+            print("You choose" + (str(answer) + "are you stupid?"))
             time.sleep(1)
-            os.system('say "{0}"'.format("You wasted a turn, Try again"))
+            print("You wasted a turn, Try again")
 
         elif (int(answer)) == (int(sum)):
-            message = "correct, you rule!"
+            print("correct, you rule!")
             os.system('say "{0}"'.format(message))
             time.sleep(1)
-            os.system('say "{0}"'.format("The answer is" + (str(sum))))
+            print("The answer is" + (str(sum)))
             time.sleep(1)
-            os.system('say "{0}"'.format("Well done!"))
+            print('say "{0}"'.format("Well done!"))
 
 
         else:
             count = count + 1
-            message = "wrong"
-            os.system('say "{0}"'.format(message))
+            print("wrong")
+           
             time.sleep(1)
-            os.system('say "{0}"'.format("The answer was" + (str(sum))))
+            print("The answer was" + (str(sum)))
             time.sleep(1)
             print("count =" + (str(count)))
 
 
     time.sleep(1)
     score = (size - count)
-    os.system('say "{0}"'.format("You scored" + (str(score))))
+    print("You scored" + (str(score)))
     time.sleep(1)
     if score > highScore:
         highScore = score
         highScoreName = name
     else:
         pass
-    os.system('say "{0}"'.format("The high score is" + (str(highScore))))
+    print("The high score is" + (str(highScore)))
     time.sleep(1)
-    os.system('say "{0}"'.format("Would you like to play again?" ))
-    again = raw_input("Yes or No: ")
-    if again == (str("Yes")):
+    print("Would you like to play again?" )
+    again = input("Yes or No: ")
+    again2 = again.lower()
+    if again == (str("yes")):
             tryAgain = True
-            os.system('say "{0}"'.format(highScoreName + "is the current champ with a high score of " + (str(highScore))))
+            print(highScoreName + "is the current champ with a high score of " + (str(highScore)))
             time.sleep(1)
     else:
             tryAgain = False
+
+
 
 
